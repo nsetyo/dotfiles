@@ -65,7 +65,6 @@ export BUN_INSTALL="$HOME/.local/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ -s "${BUN_INSTALL}/_bun" ] && source "${BUN_INSTALL}/_bun"
-
 [ -f "${HOME}/.aliases" ] && source "${HOME}/.aliases"
 [ -f "${HOME}/.env" ] && source "${HOME}/.env"
 [ -f $CARGO_HOME/env ] && source $CARGO_HOME/env
@@ -75,8 +74,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(asdf git docker docker-compose sudo rust deno)
+plugins=(git docker docker-compose sudo rust deno)
 
 source $ZSH/oh-my-zsh.sh
 
 if command -v starship &> /dev/null; then eval "$(starship init zsh)"; fi
+
+if command -v mise &> /dev/null; then eval "$(mise activate zsh)"; fi
