@@ -1,2 +1,1 @@
 alias docc="docker-compose"
-alias zola="flatpak run org.getzola.zola"

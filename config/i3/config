@@ -20,7 +20,7 @@ set $ws7            7
 set $ws8            8
 set $ws9            9
 set $ws0            0
-set $term           kitty
+set $term           alacritty
 
 set $polkit-agent   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 set $locker         /home/nsetyo/Documents/Project/dotfiles/scripts/lock.sh
@@ -77,7 +77,7 @@ bindsym mod1+XF86AudioRaiseVolume   exec --no-startup-id $brightnessctl +5%
 
 
 # start a terminal
-bindsym $mod+Return                 exec $term -e tmux new -As main
+bindsym $mod+Return                 exec $term -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q                kill
@@ -213,7 +213,7 @@ bar {
     i3bar_command $HOME/.config/polybar/cuts/launch.sh
 }
 
-assign [class="(?i)Thunderbird"]                $ws4
+assign [class="(?i)Thunderbird"]                $ws1
 assign [class="(?)Tor Browser"]                 $ws1
 assign [class="(?i)firefox"]                    $ws1
 assign [class="(?i)smplayer"]                   $ws5

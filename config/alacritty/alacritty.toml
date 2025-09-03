@@ -1,1 +1,11 @@
-import = ["/home/nsetyo/.config/alacritty/linux.toml"]
+[general]
+import = ["/home/nsetyo/.config/alacritty/catppuccin.toml"]
+
+[window]
+opacity = 0.9
+padding = { x = 4, y = 4 }
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font" }
+italic = { style = "Regular" }
+size = 11
