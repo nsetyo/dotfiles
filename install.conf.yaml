@@ -13,6 +13,7 @@
     ~/.zshenv: env
     ~/.zshrc: zshrc
     ~/.config/betterlockscreenrc: config/betterlockscreenrc
+    ~/.config/containers: config/containers
     ~/.config/gammastep: config/gammastep
     ~/.config/gtk-3.0: config/gtk-3.0
     ~/.config/i3: config/i3
