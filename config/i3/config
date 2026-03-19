@@ -20,7 +20,7 @@ set $ws7            7
 set $ws8            8
 set $ws9            9
 set $ws0            0
-set $term           alacritty
+set $term           kitty
 
 set $polkit-agent   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 set $locker         /home/nsetyo/Documents/Project/dotfiles/scripts/lock.sh
@@ -233,7 +233,7 @@ exec --no-startup-id xinput set-prop   $touchpad 'libinput Tapping Enabled' 1
 
 exec --no-startup-id $polkit-agent
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $locker
-exec --no-startup-id feh --bg-fill ~/.wallpaper
+exec --no-startup-id feh --bg-fill --randomize ~/.wallpapers/*
 exec --no-startup-id compton&
 exec --no-startup-id gammastep-indicator&
 exec --no-startup-id insync start

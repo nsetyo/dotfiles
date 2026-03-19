@@ -82,3 +82,11 @@ if command -v mise &> /dev/null; then eval "$(mise activate zsh)"; fi
 if command -v starship &> /dev/null; then eval "$(starship init zsh)"; fi
 
 if command -v mise &> /dev/null; then eval "$(mise activate zsh)"; fi
+
+# pnpm
+export PNPM_HOME="/home/nsetyo/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
