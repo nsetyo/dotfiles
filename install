@@ -1,15 +1,26 @@
 #!/usr/bin/env bash
+# Symlink packages from ./packages into $HOME with GNU Stow.
+#   ./install              stow every package
+#   ./install sway waybar  stow only the named packages
+#   ./install -n sway      extra flags are passed to stow (-n = dry run)
+# Target dir and folding behaviour come from .stowrc.
 
-set -e
+set -euo pipefail
 
-CONFIG="install.conf.yaml"
-DOTBOT_DIR="dotbot"
+cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+flags=()
+pkgs=()
+for arg in "$@"; do
+  if [[ $arg == -* ]]; then flags+=("$arg"); else pkgs+=("$arg"); fi
+done
 
-cd "${BASEDIR}"
-git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
+if ((${#pkgs[@]} == 0)); then
+  for dir in packages/*/; do
+    pkgs+=("$(basename "$dir")")
+  done
+fi
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+mkdir -p "$HOME/.vim/undo-history"
+
+stow --restow "${flags[@]}" "${pkgs[@]}"
