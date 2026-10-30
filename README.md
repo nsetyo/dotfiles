@@ -32,13 +32,14 @@ Dotfiles are grouped into [GNU Stow](https://www.gnu.org/software/stow/) package
 ```sh
 git clone git@github.com:nsetyo/dotfiles.git
 cd dotfiles
-./install            # stow every package into $HOME
-./install sway waybar  # stow only the named packages
-./install -n sway    # dry run (flags are passed to stow)
+./install               # stow every package into $HOME
+./install sway waybar   # stow only the named packages
+./install -n sway       # dry run
+./install -D sway       # unstow
 ```
 
 `.stowrc` sets the target to `$HOME` and enables `--no-folding`, so only individual files are linked and apps can write runtime state into their config dirs without touching this repo.
 
-Remove a package with `stow -D <package>`. Existing non-symlink files at the target (e.g. `~/.config/starship.toml`) must be moved away first, or use `stow --adopt` to pull them into the repo.
+Dash-prefixed arguments are passed to stow; write options that take a value as `--opt=value`. Existing non-symlink files at the target (e.g. `~/.config/starship.toml`) must be moved away first, or use `stow --adopt` to pull them into the repo.
 
-System files in `etc/sysctl.d` are copied (not linked) with `scripts/install-sysctl.sh`.
+System files in `etc/sysctl.d` are copied (not linked) with `scripts/install-sysctl.sh`; run `sudo sysctl --system` or reboot to apply them.
