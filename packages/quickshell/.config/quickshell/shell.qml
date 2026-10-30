@@ -1,6 +1,7 @@
 
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Services.UPower
 import QtQuick
 
 Scope {
@@ -76,6 +77,18 @@ Scope {
             Text {
                 anchors.centerIn: parent
                 text: Qt.formatDateTime(root.now, "dddd, dd MMM  HH:mm")
+                font.family: "JetBrainsMono Nerd Font"
+                font.pixelSize: 13
+                color: "#cdd6f4"
+            }
+
+            // Kanan: indikator baterai via UPower.displayDevice.
+            // percentage berupa desimal 0-1, jadi dikali 100. state 1 = charging.
+            Text {
+                anchors.right: parent.right
+                anchors.rightMargin: 12
+                anchors.verticalCenter: parent.verticalCenter
+                text: UPower.displayDevice ? Math.round(UPower.displayDevice.percentage * 100) + "%" + (UPower.displayDevice.state === 1 ? " ⚡" : "") : ""
                 font.family: "JetBrainsMono Nerd Font"
                 font.pixelSize: 13
                 color: "#cdd6f4"
