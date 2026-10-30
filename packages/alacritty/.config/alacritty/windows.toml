@@ -1,8 +1,0 @@
-[shell]
-program = "debian"
-
-[font]
-normal = { family = "FiraCode Nerd Font" }
-
-[keyboard]
-bindings = [{ key = "Slash", mods = "Control", chars = "\u001f" }]
