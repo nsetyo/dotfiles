@@ -13,11 +13,9 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 flags=()
 pkgs=()
-dry_run=false
 for arg in "$@"; do
   if [[ $arg == -* ]]; then
     flags+=("$arg")
-    [[ $arg == -n || $arg == --no || $arg == --simulate ]] && dry_run=true
   else
     pkgs+=("$arg")
   fi
@@ -29,7 +27,5 @@ if ((${#pkgs[@]} == 0)); then
     pkgs+=("${dir#packages/}")
   done
 fi
-
-$dry_run || mkdir -p "$HOME/.vim/undo-history"
 
 stow ${flags[@]+"${flags[@]}"} "${pkgs[@]}"
