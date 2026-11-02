@@ -10,6 +10,9 @@
 //   Timer memicu ulang dengan `proc.running = true`.
 // - Rumus CPU dari /proc/stat: cpuUsage = 1 - selisih idle / selisih total,
 //   idle = idle + iowait; polling tiap 3 detik, sama seperti end_4.
+// - Rumus RAM dari /proc/meminfo: ramUsage = 1 - MemAvailable / MemTotal,
+//   polling tiap 3 detik juga, lingkaran sama seperti CPU (20 piksel,
+//   ikon "memory_alt" di tengah, persen di samping, counter-clockwise).
 // - end_4: lingkaran progres 20 piksel + ikon di tengah + persen di samping.
 // Catatan: persen baru muncul setelah polling kedua (~6 detik), karena
 // polling pertama hanya menyimpan titik awal untuk menghitung selisih.
@@ -31,6 +34,8 @@ Scope {
 
     // CPU: 0-1, dihitung dari selisih /proc/stat antar polling.
     property real cpuUsage: 0
+    // RAM: 0-1, dihitung dari /proc/meminfo tiap polling.
+    property real ramUsage: 0
     property real lastCpuTotal: -1
     property real lastCpuIdle: -1
 
@@ -72,11 +77,35 @@ Scope {
         }
     }
 
+    // Baca MemTotal dan MemAvailable dari /proc/meminfo tiap 3 detik.
+    Process {
+        id: ramProc
+        command: ["sh", "-c", "grep -E '^(MemTotal|MemAvailable):' /proc/meminfo"]
+        running: true
+        stdout: StdioCollector {
+            onStreamFinished: {
+                var total = -1;
+                var avail = -1;
+                var lines = this.text.trim().split("\n");
+                for (var i = 0; i < lines.length; i++) {
+                    var parts = lines[i].trim().split(/\s+/);
+                    if (parts[0] === "MemTotal:") total = parseInt(parts[1], 10);
+                    if (parts[0] === "MemAvailable:") avail = parseInt(parts[1], 10);
+                }
+                if (total > 0 && avail >= 0)
+                    root.ramUsage = Math.max(0, Math.min(1, 1 - avail / total));
+            }
+        }
+    }
+
     Timer {
         interval: 3000
         running: true
         repeat: true
-        onTriggered: cpuProc.running = true
+        onTriggered: {
+            cpuProc.running = true;
+            ramProc.running = true;
+        }
     }
 
     Variants {
@@ -146,7 +175,7 @@ Scope {
                 color: "#cdd6f4"
             }
 
-            // Kanan: lingkaran CPU + persen, lalu indikator baterai.
+            // Kanan: lingkaran CPU + persen, lingkaran RAM + persen, lalu indikator baterai.
             Row {
                 anchors.right: parent.right
                 anchors.rightMargin: 12
@@ -202,6 +231,56 @@ Scope {
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
                     text: Math.round(root.cpuUsage * 100) + "%"
+                    font.family: "JetBrainsMono Nerd Font"
+                    font.pixelSize: 13
+                    color: "#cdd6f4"
+                }
+
+                // Lingkaran RAM 20 piksel, sama seperti CPU (counter-clockwise),
+                // ikon "memory_alt" di tengah. Warna hijau #a6e3a1; merah #f38ba8
+                // kalau pemakaian melewati 80%.
+                Item {
+                    width: 20
+                    height: 20
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    Canvas {
+                        id: ramRing
+                        anchors.fill: parent
+                        onPaint: {
+                            var ctx = getContext("2d");
+                            ctx.clearRect(0, 0, width, height);
+                            ctx.lineWidth = 2.5;
+                            ctx.lineCap = "round";
+                            ctx.beginPath();
+                            ctx.strokeStyle = "#313244";
+                            ctx.arc(width / 2, height / 2, 8, 0, Math.PI * 2);
+                            ctx.stroke();
+                            ctx.beginPath();
+                            ctx.strokeStyle = root.ramUsage > 0.8 ? "#f38ba8" : "#a6e3a1";
+                            ctx.arc(width / 2, height / 2, 8, -Math.PI / 2, -Math.PI / 2 - root.ramUsage * Math.PI * 2, true);
+                            ctx.stroke();
+                        }
+                        Component.onCompleted: requestPaint()
+                    }
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "memory_alt"
+                        font.family: "Material Symbols Rounded"
+                        font.pixelSize: 12
+                        color: "#cdd6f4"
+                    }
+                }
+
+                Connections {
+                    target: root
+                    function onRamUsageChanged() { ramRing.requestPaint(); }
+                }
+
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: Math.round(root.ramUsage * 100) + "%"
                     font.family: "JetBrainsMono Nerd Font"
                     font.pixelSize: 13
                     color: "#cdd6f4"
