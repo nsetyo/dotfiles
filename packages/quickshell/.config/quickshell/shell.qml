@@ -175,10 +175,10 @@ Scope {
                             ctx.strokeStyle = "#313244";
                             ctx.arc(width / 2, height / 2, 8, 0, Math.PI * 2);
                             ctx.stroke();
-                            // Busur pemakaian, mulai dari atas.
+                            // Busur pemakaian, mulai dari atas, berlawanan jarum jam (counter-clockwise).
                             ctx.beginPath();
                             ctx.strokeStyle = root.cpuUsage > 0.8 ? "#f38ba8" : "#89b4fa";
-                            ctx.arc(width / 2, height / 2, 8, -Math.PI / 2, -Math.PI / 2 + root.cpuUsage * Math.PI * 2);
+                            ctx.arc(width / 2, height / 2, 8, -Math.PI / 2, -Math.PI / 2 - root.cpuUsage * Math.PI * 2, true);
                             ctx.stroke();
                         }
                         Component.onCompleted: requestPaint()
