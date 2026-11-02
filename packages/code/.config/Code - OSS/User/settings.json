@@ -1,0 +1,73 @@
+{
+    "catppuccin.accentColor": "pink",
+    "catppuccin.customUIColors": {
+        "mocha": {
+            "statusBar.foreground": "accent",
+        },
+    },
+    "catppuccin.italicKeywords": false,
+    "catppuccin.italicComments": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.accessibilitySupport": "off",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.dragAndDrop": false,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.formatOnSave": true,
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "editor.lineHeight": 24,
+    "editor.links": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.padding.top": 8,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "editor.renderWhitespace": "selection",
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.semanticHighlighting.enabled": true,
+    "editor.smoothScrolling": true,
+    "editor.snippetSuggestions": "top",
+    "editor.tabSize": 4,
+    "emmet.triggerExpansionOnTab": true,
+    "explorer.confirmDelete": false,
+    "explorer.enableDragAndDrop": false,
+    "files.trimTrailingWhitespace": true,
+    "git.openRepositoryInParentFolders": "always",
+    "html.format.indentHandlebars": true,
+    "keyboard.dispatch": "keyCode",
+    "npm.fetchOnlinePackageInfo": false,
+    "qt-core.additionalQtPaths": [
+        {
+            "name": "Qt-5.15.19-linux-g++-x86_64_from_PATH",
+            "path": "/usr/bin/qmake"
+        }
+    ],
+    "qt-core.showWelcomePageOnActivation": false,
+    "telemetry.telemetryLevel": "off",
+    "terminal.integrated.minimumContrastRatio": 1,
+    "terminal.integrated.scrollback": 5000,
+    "timeline.pageSize": 0,
+    "update.showReleaseNotes": false,
+    "window.closeWhenEmpty": false,
+    "window.menuBarVisibility": "toggle",
+    "window.newWindowDimensions": "maximized",
+    "window.titleBarStyle": "custom",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
+        "*.qrc": "qt-core.qrcEditor"
+    },
+    "workbench.enableExperiments": false,
+    "workbench.list.horizontalScrolling": true,
+    "workbench.sideBar.location": "right"
+}

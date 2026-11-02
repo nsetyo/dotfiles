@@ -1,6 +1,4 @@
 {
-  "[lua]": {
-    "editor.defaultFormatter": "JohnnyMorganz.stylua"
-  },
-  "Lua.diagnostics.globals": ["vim"]
+  "editor.formatOnSave": true,
+  "css.lint.unknownAtRules": "ignore"
 }
