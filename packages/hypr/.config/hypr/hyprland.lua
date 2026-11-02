@@ -36,6 +36,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
     hl.exec_cmd("hypridle") -- idle: lock 5 mnt, DPMS off, suspend 30 mnt (hypridle.conf)
+    hl.exec_cmd("mako") -- notifikasi (mako/config)
 end)
 
 

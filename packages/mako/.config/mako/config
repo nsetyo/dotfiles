@@ -1,8 +1,27 @@
-background-color=#8877FFD9
-border-color=#8877FFFF
-border-radius=5
+# mako - Catppuccin Mocha
+# Notifikasi kanan atas, selaras dengan bar Quickshell, rofi & kitty.
+
+anchor=top-right
+background-color=#1e1e2eE6
+text-color=#cdd6f4
+border-color=#89b4fa
+border-size=2
+border-radius=10
 default-timeout=5000
-font=Open Sans 10
-margin=16,8,10
+font=JetBrainsMono Nerd Font 11
+margin=10
+max-visible=5
 padding=10
+sort=-time
 width=360
+
+[urgency=low]
+border-color=#6c7086
+
+[urgency=normal]
+border-color=#89b4fa
+
+[urgency=high]
+background-color=#313244E6
+border-color=#f38ba8
+default-timeout=0
