@@ -54,6 +54,7 @@ hl.on("hyprland.start", function ()
   -- (packages/quickshell/.config/systemd/user/quickshell.service).
   hl.exec_cmd("hyprpaper")
   hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
+  hl.exec_cmd("hypridle")  -- idle: lock 5 mnt, DPMS off, suspend 30 mnt (hypridle.conf)
 end)
 
 
@@ -282,6 +283,8 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))  -- lock via hyprlock
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("bash ~/.config/rofi/powermenu.sh"))  -- power menu rofi
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
