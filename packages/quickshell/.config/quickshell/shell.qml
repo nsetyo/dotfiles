@@ -212,7 +212,7 @@ Scope {
                 // state 1 = charging (enum UPower: 1 charging, 2 discharging).
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
-                    text: UPower.displayDevice ? Math.round(UPower.displayDevice.percentage * 100) + "%" + (UPower.displayDevice.state === 1 ? " ⚡" : "") : ""
+                    text: UPower.displayDevice ? (UPower.displayDevice.state === 1 ? "⚡ " : "") + Math.round(UPower.displayDevice.percentage * 100) + "%" : ""
                     font.family: "JetBrainsMono Nerd Font"
                     font.pixelSize: 13
                     color: "#cdd6f4"
