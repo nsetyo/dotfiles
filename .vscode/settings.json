@@ -1,4 +1,7 @@
 {
   "editor.formatOnSave": true,
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "Lua.diagnostics.globals": [
+    "hl"
+  ]
 }
