@@ -50,7 +50,8 @@ local menu        = "wofi  --show drun"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function () 
-  hl.exec_cmd("quickshell")
+  -- Quickshell tidak lagi di autostart di sini; dijalankan via systemd user service
+  -- (packages/quickshell/.config/systemd/user/quickshell.service).
   hl.exec_cmd("hyprpaper")
   hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
 end)
