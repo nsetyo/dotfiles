@@ -271,6 +271,11 @@ hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("bash ~/.config/rofi/powermenu.sh")) 
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))                        -- dwindle only
 
+-- Screenshot: Print = pilih area, Shift+Print = layar penuh (grim + slurp,
+-- simpan ke ~/Pictures/Screenshots/ + clipboard, notifikasi via mako)
+hl.bind("Print", hl.dsp.exec_cmd("bash ~/.config/hypr/screenshot.sh area"))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("bash ~/.config/hypr/screenshot.sh full"))
+
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
