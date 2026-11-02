@@ -1,0 +1,13 @@
+// config.rasi - Rofi papa, tema Catppuccin Mocha
+// Sumber tema: catppuccin/rofi (catppuccin-mocha.rasi + catppuccin-default.rasi).
+// Mocha dipilih karena cocok dengan bar Quickshell papa (base #1e1e2e,
+// biru #89b4fa, teks #cdd6f4).
+configuration {
+  modi: "drun,run";
+  show-icons: true;
+  display-drun: "Apps";
+  display-run: "Run";
+  font: "JetBrainsMono Nerd Font 11";
+  drun-display-format: "{icon} {name}";
+}
+@theme "catppuccin-default"
