@@ -1,7 +1,9 @@
 // shell.qml — DRAF indikator CPU lingkaran ala end_4, untuk bar Quickshell papa
 // Basis: draf shell.qml yang sudah jalan di laptop papa (workspace 1-9 + jam +
 // baterai UPower, PanelWindow color: "transparent").
-// DRAF BELUM DIUJI di laptop papa. Yang sudah diverifikasi dari sumber:
+// Ikon tengah: "memory" dari Material Symbols Rounded
+// (paket Arch resmi ttf-material-symbols-variable, terpasang 2 Nov 2026).
+// Yang sudah diverifikasi dari sumber:
 // - Pola Process + StdioCollector + Timer dari panduan resmi Quickshell
 //   (quickshell.org/docs/v0.2.1/guide/introduction/): Process menjalankan
 //   satu perintah, StdioCollector.onStreamFinished menerima this.text,
@@ -9,8 +11,6 @@
 // - Rumus CPU dari /proc/stat: cpuUsage = 1 - selisih idle / selisih total,
 //   idle = idle + iowait; polling tiap 3 detik, sama seperti end_4.
 // - end_4: lingkaran progres 20 piksel + ikon di tengah + persen di samping.
-//   Versi ini tanpa ikon Material Symbols (belum terpasang di laptop papa):
-//   lingkarannya saja + persen di samping.
 // Catatan: persen baru muncul setelah polling kedua (~6 detik), karena
 // polling pertama hanya menyimpan titik awal untuk menghitung selisih.
 // Cara coba: simpan sebagai ~/.config/quickshell/shell.qml (backup dulu
@@ -153,31 +153,44 @@ Scope {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: 6
 
-                // Lingkaran progres 20 piksel ala end_4 (tanpa ikon tengah).
+                // Lingkaran progres 20 piksel ala end_4, dengan ikon
+                // "memory" Material Symbols Rounded di tengahnya.
                 // Warna biru #89b4fa seperti workspace aktif; merah #f38ba8
                 // kalau pemakaian melewati 80%, seperti ambang end_4.
-                Canvas {
-                    id: cpuRing
+                Item {
                     width: 20
                     height: 20
                     anchors.verticalCenter: parent.verticalCenter
-                    onPaint: {
-                        var ctx = getContext("2d");
-                        ctx.clearRect(0, 0, width, height);
-                        ctx.lineWidth = 2.5;
-                        ctx.lineCap = "round";
-                        // Latar lingkaran.
-                        ctx.beginPath();
-                        ctx.strokeStyle = "#313244";
-                        ctx.arc(width / 2, height / 2, 8, 0, Math.PI * 2);
-                        ctx.stroke();
-                        // Busur pemakaian, mulai dari atas.
-                        ctx.beginPath();
-                        ctx.strokeStyle = root.cpuUsage > 0.8 ? "#f38ba8" : "#89b4fa";
-                        ctx.arc(width / 2, height / 2, 8, -Math.PI / 2, -Math.PI / 2 + root.cpuUsage * Math.PI * 2);
-                        ctx.stroke();
+
+                    Canvas {
+                        id: cpuRing
+                        anchors.fill: parent
+                        onPaint: {
+                            var ctx = getContext("2d");
+                            ctx.clearRect(0, 0, width, height);
+                            ctx.lineWidth = 2.5;
+                            ctx.lineCap = "round";
+                            // Latar lingkaran.
+                            ctx.beginPath();
+                            ctx.strokeStyle = "#313244";
+                            ctx.arc(width / 2, height / 2, 8, 0, Math.PI * 2);
+                            ctx.stroke();
+                            // Busur pemakaian, mulai dari atas.
+                            ctx.beginPath();
+                            ctx.strokeStyle = root.cpuUsage > 0.8 ? "#f38ba8" : "#89b4fa";
+                            ctx.arc(width / 2, height / 2, 8, -Math.PI / 2, -Math.PI / 2 + root.cpuUsage * Math.PI * 2);
+                            ctx.stroke();
+                        }
+                        Component.onCompleted: requestPaint()
                     }
-                    Component.onCompleted: requestPaint()
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "memory"
+                        font.family: "Material Symbols Rounded"
+                        font.pixelSize: 12
+                        color: "#cdd6f4"
+                    }
                 }
 
                 // Gambar ulang lingkaran tiap persen berubah.
