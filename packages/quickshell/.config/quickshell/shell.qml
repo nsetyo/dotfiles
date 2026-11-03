@@ -18,6 +18,11 @@
 // - Volume dari wpctl get-volume @DEFAULT_AUDIO_SINK@: "Volume: 0.50"
 //   atau "... [MUTED]", polling tiap 3 detik, ikon + persen seperti
 //   baterai (ikon berubah sesuai level / mute).
+// - Brightness instan via IPC: keybind brightness di hyprland.lua
+//   menjalankan `quickshell ipc call brightness refresh` setelah
+//   brightnessctl, jadi indikator berubah langsung tanpa menunggu
+//   polling 3 detik (polling tetap jalan sebagai fallback, mis. saat
+//   hypridle meredupkan layar).
 // - end_4: lingkaran progres 20 piksel + ikon di tengah + persen di samping.
 // Catatan: persen baru muncul setelah polling kedua (~6 detik), karena
 // polling pertama hanya menyimpan titik awal untuk menghitung selisih.
@@ -149,6 +154,18 @@ Scope {
             ramProc.running = true;
             brightnessProc.running = true;
             volumeProc.running = true;
+        }
+    }
+
+    // IPC: keybind brightness di hyprland.lua memanggil
+    // `quickshell ipc call brightness refresh` setelah brightnessctl,
+    // supaya indikator berubah instan tanpa menunggu polling 3 detik.
+    // IpcHandler ada di Quickshell.Io (sudah di-import di atas).
+    IpcHandler {
+        target: "brightness"
+
+        function refresh(): void {
+            brightnessProc.running = true;
         }
     }
 
