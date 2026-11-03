@@ -244,6 +244,42 @@ Scope {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: 6
 
+                // Indikator brightness: ikon berubah sesuai level, persen di samping.
+                // brightness_high >= 70%, brightness_medium >= 40%, sisanya low.
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: root.brightness >= 0.7 ? "brightness_high" : root.brightness >= 0.4 ? "brightness_medium" : "brightness_low"
+                    font.family: "Material Symbols Rounded"
+                    font.pixelSize: 16
+                    color: "#cdd6f4"
+                }
+
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: Math.round(root.brightness * 100) + "%"
+                    font.family: "JetBrainsMono Nerd Font"
+                    font.pixelSize: 13
+                    color: "#cdd6f4"
+                }
+
+                // Indikator volume: ikon berubah sesuai level / mute, persen di samping.
+                // Muted menampilkan teks "Muted", bukan persen.
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: root.volumeMuted ? "volume_off" : root.volume >= 0.5 ? "volume_up" : root.volume > 0 ? "volume_down" : "volume_mute"
+                    font.family: "Material Symbols Rounded"
+                    font.pixelSize: 16
+                    color: "#cdd6f4"
+                }
+
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: root.volumeMuted ? "Muted" : Math.round(root.volume * 100) + "%"
+                    font.family: "JetBrainsMono Nerd Font"
+                    font.pixelSize: 13
+                    color: "#cdd6f4"
+                }
+
                 // Lingkaran progres 20 piksel ala end_4, dengan ikon
                 // "memory" Material Symbols Rounded di tengahnya.
                 // Warna biru #89b4fa seperti workspace aktif; merah #f38ba8
@@ -343,42 +379,6 @@ Scope {
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
                     text: Math.round(root.ramUsage * 100) + "%"
-                    font.family: "JetBrainsMono Nerd Font"
-                    font.pixelSize: 13
-                    color: "#cdd6f4"
-                }
-
-                // Indikator brightness: ikon berubah sesuai level, persen di samping.
-                // brightness_high >= 70%, brightness_medium >= 40%, sisanya low.
-                Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: root.brightness >= 0.7 ? "brightness_high" : root.brightness >= 0.4 ? "brightness_medium" : "brightness_low"
-                    font.family: "Material Symbols Rounded"
-                    font.pixelSize: 16
-                    color: "#cdd6f4"
-                }
-
-                Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: Math.round(root.brightness * 100) + "%"
-                    font.family: "JetBrainsMono Nerd Font"
-                    font.pixelSize: 13
-                    color: "#cdd6f4"
-                }
-
-                // Indikator volume: ikon berubah sesuai level / mute, persen di samping.
-                // Muted menampilkan teks "Muted", bukan persen.
-                Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: root.volumeMuted ? "volume_off" : root.volume >= 0.5 ? "volume_up" : root.volume > 0 ? "volume_down" : "volume_mute"
-                    font.family: "Material Symbols Rounded"
-                    font.pixelSize: 16
-                    color: "#cdd6f4"
-                }
-
-                Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: root.volumeMuted ? "Muted" : Math.round(root.volume * 100) + "%"
                     font.family: "JetBrainsMono Nerd Font"
                     font.pixelSize: 13
                     color: "#cdd6f4"
