@@ -195,9 +195,12 @@ Scope {
             }
 
             // Kiri: workspace 1-9. Klik = pindah workspace via dispatcher Hyprland.
+            // Rounding pill aktif selaras dengan sudut bar: latar bar radius 12
+            // dengan margin 3; pill inset 2px dari latar (kiri & atas sama) sehingga
+            // radius pill = 12 - 2 = 10, konsentris dengan sudut bar.
             Row {
                 anchors.left: parent.left
-                anchors.leftMargin: 12
+                anchors.leftMargin: 5
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: 4
 
@@ -207,8 +210,8 @@ Scope {
                     Rectangle {
                         required property int index
                         width: 28
-                        height: 24
-                        radius: 8
+                        height: 22
+                        radius: 10
                         color: (Hyprland.focusedWorkspace && Hyprland.focusedWorkspace.id === index + 1) ? "#89b4fa" : "transparent"
 
                         Text {
