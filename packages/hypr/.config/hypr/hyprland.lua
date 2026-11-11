@@ -1,1 +1,380 @@
-LS0tLS0tLS0tLS0tLS0tLS0tCi0tLS0gTU9OSVRPUlMgLS0tLQotLS0tLS0tLS0tLS0tLS0tLS0KCi0tIFNlZSBodHRwczovL3dpa2kuaHlwci5sYW5kL2NvbmZpZ3VyaW5nL2NvcmUvbW9uaXRvcnMvCmhsLm1vbml0b3IoewogICAgb3V0cHV0ICAgPSAiIiwKICAgIG1vZGUgICAgID0gInByZWZlcnJlZCIsCiAgICBwb3NpdGlvbiA9ICJhdXRvIiwKICAgIHNjYWxlICAgID0gIjEiLAp9KQoKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLQotLS0tIE1ZIFBST0dSQU1TIC0tLS0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgotLSBTZXQgcHJvZ3JhbXMgdGhhdCB5b3UgdXNlCmxvY2FsIHRlcm1pbmFsICAgID0gImtpdHR5Igpsb2NhbCBmaWxlTWFuYWdlciA9ICJ0aHVuYXIiCmxvY2FsIG1lbnUgICAgICAgID0gInJvZmkgLXNob3cgZHJ1biIKCgotLS0tLS0tLS0tLS0tLS0tLS0tCi0tLS0gQVVUT1NUQVJUIC0tLS0KLS0tLS0tLS0tLS0tLS0tLS0tLQoKLS0gU2VlIGh0dHBzOi8vd2lraS5oeXByLmxhbmQvY29uZmlndXJpbmcvY29yZS9hdXRvc3RhcnQvCgotLSBBdXRvc3RhcnQgbmVjZXNzYXJ5IHByb2Nlc3NlcyAobGlrZSBub3RpZmljYXRpb25zIGRhZW1vbnMsIHN0YXR1cyBiYXJzLCBldGMuKQotLSBPciBleGVjdXRlIHlvdXIgZmF2b3JpdGUgYXBwcyBhdCBsYXVuY2ggbGlrZSB0aGlzOgotLQpobC5vbigiaHlwcmxhbmQuc3RhcnQiLCBmdW5jdGlvbigpCiAgICAtLSBRdWlja3NoZWxsIHRpZGFrIGxhZ2kgZGkgYXV0b3N0YXJ0IGRpIHNpbmk7IGRpamFsYW5rYW4gdmlhIHN5c3RlbWQgdXNlciBzZXJ2aWNlCiAgICAtLSAocGFja2FnZXMvcXVpY2tzaGVsbC8uY29uZmlnL3N5c3RlbWQvdXNlci9xdWlja3NoZWxsLnNlcnZpY2UpLgogICAgaGwuZXhlY19jbWQoImh5cHJwYXBlciIpCiAgICBobC5leGVjX2NtZCgiL3Vzci9saWIvaHlwcnBvbGtpdGFnZW50L2h5cHJwb2xraXRhZ2VudCIpCiAgICBobC5leGVjX2NtZCgiaHlwcmlkbGUiKSAtLSBpZGxlOiBsb2NrIDUgbW50LCBEUE1TIG9mZiwgc3VzcGVuZCAzMCBtbnQgKGh5cHJpZGxlLmNvbmYpCiAgICBobC5leGVjX2NtZCgibWFrbyIpIC0tIG5vdGlmaWthc2kgKG1ha28vY29uZmlnKQplbmQpCgoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQotLS0tIEVOVklST05NRU5UIFZBUklBQkxFUyAtLS0tCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCi0tIFNlZSBodHRwczovL3dpa2kuaHlwci5sYW5kL2NvbmZpZ3VyaW5nL2NvcmUvZW52aXJvbm1lbnQtdmFyaWFibGVzLwoKaGwuZW52KCJYQ1VSU09SX1NJWkUiLCAiMjQiKQpobC5lbnYoIkhZUFJDVVJTT1JfU0laRSIsICIyNCIpCgoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KLS0tLS0gUEVSTUlTU0lPTlMgLS0tLS0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCi0tIFNlZSBodHRwczovL3dpa2kuaHlwci5sYW5kL2NvbmZpZ3VyaW5nL2NvcmUvYWR2YW5jZWQtY29uZmlndXJhdGlvbi9wZXJtaXNzaW9ucy8KLS0gUGxlYXNlIG5vdGUgcGVybWlzc2lvbiBjaGFuZ2VzIGhlcmUgcmVxdWlyZSBhIEh5cHJsYW5kIHJlc3RhcnQgYW5kIGFyZSBub3QgYXBwbGllZCBvbi10aGUtZmx5Ci0tIGZvciBzZWN1cml0eSByZWFzb25zCgotLSBobC5jb25maWcoewotLSAgIGVjb3N5c3RlbSA9IHsKLS0gICAgIGVuZm9yY2VfcGVybWlzc2lvbnMgPSB0cnVlLAotLSAgIH0sCi0tIH0pCgotLSBobC5wZXJtaXNzaW9uKCIvdXNyLyhiaW58bG9jYWwvYmluKS9ncmltIiwgInNjcmVlbmNvcHkiLCAiYWxsb3ciKQotLSBobC5wZXJtaXNzaW9uKCIvdXNyLyhsaWJ8bGliZXhlY3xsaWI2NCkveGRnLWRlc2t0b3AtcG9ydGFsLWh5cHJsYW5kIiwgInNjcmVlbmNvcHkiLCAiYWxsb3ciKQotLSBobC5wZXJtaXNzaW9uKCIvdXNyLyhiaW58bG9jYWwvYmluKS9oeXBycG0iLCAicGx1Z2luIiwgImFsbG93IikKCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQotLS0tIExPT0sgQU5EIEZFRUwgLS0tLQotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKLS0gUmVmZXIgdG8gaHR0cHM6Ly93aWtpLmh5cHIubGFuZC9jb25maWd1cmluZy9jb3JlL2NvbmZpZy1vcHRpb25zLwpobC5jb25maWcoewogICAgZ2VuZXJhbCA9IHsKICAgICAgICBnYXBzX2luICAgICAgICAgID0gNSwKICAgICAgICBnYXBzX291dCAgICAgICAgID0gMTAsCgogICAgICAgIGJvcmRlcl9zaXplICAgICAgPSAyLAoKICAgICAgICBjb2wgICAgICAgICAgICAgID0gewogICAgICAgICAgICBhY3RpdmVfYm9yZGVyICAgPSB7IGNvbG9ycyA9IHsgInJnYmEoMzNjY2ZmZWUpIiwgInJnYmEoMDBmZjk5ZWUpIiB9LCBhbmdsZSA9IDQ1IH0sCiAgICAgICAgICAgIGluYWN0aXZlX2JvcmRlciA9ICJyZ2JhKDU5NTk1OWFhKSIsCiAgICAgICAgfSwKCiAgICAgICAgLS0gU2V0IHRvIHRydWUgdG8gZW5hYmxlIHJlc2l6aW5nIHdpbmRvd3MgYnkgY2xpY2tpbmcgYW5kIGRyYWdnaW5nIG9uIGJvcmRlcnMgYW5kIGdhcHMKICAgICAgICByZXNpemVfb25fYm9yZGVyID0gZmFsc2UsCgogICAgICAgIC0tIFBsZWFzZSBzZWUgaHR0cHM6Ly93aWtpLmh5cHIubGFuZC9jb25maWd1cmluZy9leHRyYS90ZWFyaW5nLyBiZWZvcmUgeW91IHR1cm4gdGhpcyBvbgogICAgICAgIGFsbG93X3RlYXJpbmcgICAgPSBmYWxzZSwKCiAgICAgICAgbGF5b3V0ICAgICAgICAgICA9ICJkd2luZGxlIiwKICAgIH0sCgogICAgZGVjb3JhdGlvbiA9IHsKICAgICAgICByb3VuZGluZyAgICAgICAgID0gMTAsCiAgICAgICAgcm91bmRpbmdfcG93ZXIgICA9IDIsCgogICAgICAgIC0tIENoYW5nZSB0cmFuc3BhcmVuY3kgb2YgZm9jdXNlZCBhbmQgdW5mb2N1c2VkIHdpbmRvd3MKICAgICAgICBhY3RpdmVfb3BhY2l0eSAgID0gMS4wLAogICAgICAgIGluYWN0aXZlX29wYWNpdHkgPSAxLjAsCgogICAgICAgIHNoYWRvdyAgICAgICAgICAgPSB7CiAgICAgICAgICAgIGVuYWJsZWQgICAgICA9IHRydWUsCiAgICAgICAgICAgIHJhbmdlICAgICAgICA9IDQsCiAgICAgICAgICAgIHJlbmRlcl9wb3dlciA9IDMsCiAgICAgICAgICAgIGNvbG9yICAgICAgICA9IDB4ZWUxYTFhMWEsCiAgICAgICAgfSwKCiAgICAgICAgYmx1ciAgICAgICAgICAgICA9IHsKICAgICAgICAgICAgZW5hYmxlZCAgPSB0cnVlLAogICAgICAgICAgICBzaXplICAgICA9IDMsCiAgICAgICAgICAgIHBhc3NlcyAgID0gMSwKICAgICAgICAgICAgdmlicmFuY3kgPSAwLjE2OTYsCiAgICAgICAgfSwKICAgIH0sCgogICAgYW5pbWF0aW9ucyA9IHsKICAgICAgICBlbmFibGVkID0gdHJ1ZSwKICAgIH0sCn0pCgotLSBEZWZhdWx0IGN1cnZlcyBhbmQgYW5pbWF0aW9ucywgc2VlIGh0dHBzOi8vd2lraS5oeXByLmxhbmQvY29uZmlndXJpbmcvY29yZS9hbmltYXRpb25zLwpobC5jdXJ2ZSgiZWFzZU91dFF1aW50IiwgeyB0eXBlID0gImJlemllciIsIHBvaW50cyA9IHsgeyAwLjIzLCAxIH0sIHsgMC4zMiwgMSB9IH0gfSkKaGwuY3VydmUoImVhc2VJbk91dEN1YmljIiwgeyB0eXBlID0gImJlemllciIsIHBvaW50cyA9IHsgeyAwLjY1LCAwLjA1IH0sIHsgMC4zNiwgMSB9IH0gfSkKaGwuY3VydmUoImxpbmVhciIsIHsgdHlwZSA9ICJiZXppZXIiLCBwb2ludHMgPSB7IHsgMCwgMCB9LCB7IDEsIDEgfSB9IH0pCmhsLmN1cnZlKCJhbG1vc3RMaW5lYXIiLCB7IHR5cGUgPSAiYmV6aWVyIiwgcG9pbnRzID0geyB7IDAuNSwgMC41IH0sIHsgMC43NSwgMSB9IH0gfSkKaGwuY3VydmUoInF1aWNrIiwgeyB0eXBlID0gImJlemllciIsIHBvaW50cyA9IHsgeyAwLjE1LCAwIH0sIHsgMC4xLCAxIH0gfSB9KQoKLS0gRGVmYXVsdCBzcHJpbmdzCmhsLmN1cnZlKCJlYXN5IiwgeyB0eXBlID0gInNwcmluZyIsIG1hc3MgPSAxLCBzdGlmZm5lc3MgPSAyMzguMTE5MSwgZGFtcGluZyA9IDI0LjIxMjc5MzMzIH0pCgpobC5hbmltYXRpb24oeyBsZWFmID0gImdsb2JhbCIsIGVuYWJsZWQgPSB0cnVlLCBzcGVlZCA9IDEwLCBiZXppZXIgPSAiZGVmYXVsdCIgfSkKaGwuYW5pbWF0aW9uKHsgbGVhZiA9ICJib3JkZXIiLCBlbmFibGVkID0gdHJ1ZSwgc3BlZWQgPSA1LjM5LCBiZXppZXIgPSAiZWFzZU91dFF1aW50IiB9KQpobC5hbmltYXRpb24oeyBsZWFmID0gIndpbmRvd3MiLCBlbmFibGVkID0gdHJ1ZSwgc3BlZWQgPSA0Ljc5LCBzcHJpbmcgPSAiZWFzeSIgfSkKaGwuYW5pbWF0aW9uKHsgbGVhZiA9ICJ3aW5kb3dzSW4iLCBlbmFibGVkID0gdHJ1ZSwgc3BlZWQgPSA0LjEsIHNwcmluZyA9ICJlYXN5Iiwgc3R5bGUgPSAicG9waW4gODclIiB9KQpobC5hbmltYXRpb24oeyBsZWFmID0gIndpbmRvd3NPdXQiLCBlbmFibGVkID0gdHJ1ZSwgc3BlZWQgPSAxLjQ5LCBiZXppZXIgPSAibGluZWFyIiwgc3R5bGUgPSAicG9waW4gODclIiB9KQpobC5hbmltYXRpb24oeyBsZWFmID0gImZhZGVJbiIsIGVuYWJsZWQgPSB0cnVlLCBzcGVlZCA9IDEuNzMsIGJlemllciA9ICJhbG1vc3RMaW5lYXIiIH0pCmhsLmFuaW1hdGlvbih7IGxlYWYgPSAiZmFkZU91dCIsIGVuYWJsZWQgPSB0cnVlLCBzcGVlZCA9IDEuNDYsIGJlemllciA9ICJhbG1vc3RMaW5lYXIiIH0pCmhsLmFuaW1hdGlvbih7IGxlYWYgPSAiZmFkZSIsIGVuYWJsZWQgPSB0cnVlLCBzcGVlZCA9IDMuMDMsIGJlemllciA9ICJxdWljayIgfSkKaGwuYW5pbWF0aW9uKHsgbGVhZiA9ICJsYXllcnMiLCBlbmFibGVkID0gdHJ1ZSwgc3BlZWQgPSAzLjgxLCBiZXppZXIgPSAiZWFzZU91dFF1aW50IiB9KQpobC5hbmltYXRpb24oeyBsZWFmID0gImxheWVyc0luIiwgZW5hYmxlZCA9IHRydWUsIHNwZWVkID0gNCwgYmV6aWVyID0gImVhc2VPdXRRdWludCIsIHN0eWxlID0gImZhZGUiIH0pCmhsLmFuaW1hdGlvbih7IGxlYWYgPSAibGF5ZXJzT3V0IiwgZW5hYmxlZCA9IHRydWUsIHNwZWVkID0gMS41LCBiZXppZXIgPSAibGluZWFyIiwgc3R5bGUgPSAiZmFkZSIgfSkKaGwuYW5pbWF0aW9uKHsgbGVhZiA9ICJmYWRlTGF5ZXJzSW4iLCBlbmFibGVkID0gdHJ1ZSwgc3BlZWQgPSAxLjc5LCBiZXppZXIgPSAiYWxtb3N0TGluZWFyIiB9KQpobC5hbmltYXRpb24oeyBsZWFmID0gImZhZGVMYXllcnNPdXQiLCBlbmFibGVkID0gdHJ1ZSwgc3BlZWQgPSAxLjM5LCBiZXppZXIgPSAiYWxtb3N0TGluZWFyIiB9KQpobC5hbmltYXRpb24oeyBsZWFmID0gIndvcmtzcGFjZXMiLCBlbmFibGVkID0gdHJ1ZSwgc3BlZWQgPSAxLjk0LCBiZXppZXIgPSAiYWxtb3N0TGluZWFyIiwgc3R5bGUgPSAiZmFkZSIgfSkKaGwuYW5pbWF0aW9uKHsgbGVhZiA9ICJ3b3Jrc3BhY2VzSW4iLCBlbmFibGVkID0gdHJ1ZSwgc3BlZWQgPSAxLjIxLCBiZXppZXIgPSAiYWxtb3N0TGluZWFyIiwgc3R5bGUgPSAiZmFkZSIgfSkKaGwuYW5pbWF0aW9uKHsgbGVhZiA9ICJ3b3Jrc3BhY2VzT3V0IiwgZW5hYmxlZCA9IHRydWUsIHNwZWVkID0gMS45NCwgYmV6aWVyID0gImFsbW9zdExpbmVhciIsIHN0eWxlID0gImZhZGUiIH0pCmhsLmFuaW1hdGlvbih7IGxlYWYgPSAiem9vbUZhY3RvciIsIGVuYWJsZWQgPSB0cnVlLCBzcGVlZCA9IDcsIGJlemllciA9ICJxdWljayIgfSkKCi0tIFJlZiBodHRwczovL3dpa2kuaHlwci5sYW5kL2NvbmZpZ3VyaW5nL2NvcmUvcnVsZXMvd29ya3NwYWNlLXJ1bGVzLwotLSAiU21hcnQgZ2FwcyIgLyAiTm8gZ2FwcyB3aGVuIG9ubHkiCi0tIHVuY29tbWVudCBhbGwgaWYgeW91IHdpc2ggdG8gdXNlIHRoYXQuCi0tIGhsLndvcmtzcGFjZV9ydWxlKHsgd29ya3NwYWNlID0gIndbdHYxXSIsIGdhcHNfb3V0ID0gMCwgZ2Fwc19pbiA9IDAgfSkKLS0gaGwud29ya3NwYWNlX3J1bGUoeyB3b3Jrc3BhY2UgPSAiZlsxXSIsICAgZ2Fwc19vdXQgPSAwLCBnYXBzX2luID0gMCB9KQoKLS0gV29ya3NwYWNlIDEgcGFrYWkgbGF5b3V0IHNjcm9sbGluZywgd29ya3NwYWNlIGxhaW4gdGV0YXAgZHdpbmRsZSAoZGVmYXVsdCkKaGwud29ya3NwYWNlX3J1bGUoeyB3b3Jrc3BhY2UgPSAiMSIsIGxheW91dCA9ICJzY3JvbGxpbmciIH0pCi0tIGhsLndpbmRvd19ydWxlKHsKLS0gICAgIG5hbWUgID0gIm5vLWdhcHMtd3R2MSIsCi0tICAgICBtYXRjaCA9IHsgZmxvYXQgPSBmYWxzZSwgd29ya3NwYWNlID0gIndbdHYxXSIgfSwKLS0gICAgIGJvcmRlcl9zaXplID0gMCwKLS0gICAgIHJvdW5kaW5nICAgID0gMCwKLS0gfSkKLS0gaGwud2luZG93X3J1bGUoewotLSAgICAgbmFtZSAgPSAibm8tZ2Fwcy1mMSIsCi0tICAgICBtYXRjaCA9IHsgZmxvYXQgPSBmYWxzZSwgd29ya3NwYWNlID0gImZbMV0iIH0sCi0tICAgICBib3JkZXJfc2l6ZSA9IDAsCi0tICAgICByb3VuZGluZyAgICA9IDAsCi0tIH0pCgotLSBTZWUgaHR0cHM6Ly93aWtpLmh5cHIubGFuZC9jb25maWd1cmluZy9sYXlvdXRzL2R3aW5kbGUtbGF5b3V0LyBmb3IgbW9yZQpobC5jb25maWcoewogICAgZHdpbmRsZSA9IHsKICAgICAgICBwcmVzZXJ2ZV9zcGxpdCA9IHRydWUsIC0tIFlvdSBwcm9iYWJseSB3YW50IHRoaXMKICAgIH0sCn0pCgotLSBTZWUgaHR0cHM6Ly93aWtpLmh5cHIubGFuZC9jb25maWd1cmluZy9sYXlvdXRzL21hc3Rlci1sYXlvdXQvIGZvciBtb3JlCmhsLmNvbmZpZyh7CiAgICBtYXN0ZXIgPSB7CiAgICAgICAgbmV3X3N0YXR1cyA9ICJtYXN0ZXIiLAogICAgfSwKfSkKCi0tIFNlZSBodHRwczovL3dpa2kuaHlwci5sYW5kL2NvbmZpZ3VyaW5nL2xheW91dHMvc2Nyb2xsaW5nLWxheW91dC8gZm9yIG1vcmUKaGwuY29uZmlnKHsKICAgIHNjcm9sbGluZyA9IHsKICAgICAgICBmdWxsc2NyZWVuX29uX29uZV9jb2x1bW4gPSB0cnVlLAogICAgfSwKfSkKCi0tLS0tLS0tLS0tLS0tLS0KLS0tLSAgTUlTQyAgLS0tLQotLS0tLS0tLS0tLS0tLS0tCgpobC5jb25maWcoewogICAgbWlzYyA9IHsKICAgICAgICBmb3JjZV9kZWZhdWx0X3dhbGxwYXBlciA9IC0xLCAgICAtLSBTZXQgdG8gMCBvciAxIHRvIGRpc2FibGUgdGhlIGFuaW1lIG1hc2NvdCB3YWxscGFwZXJzCiAgICAgICAgZGlzYWJsZV9oeXBybGFuZF9sb2dvICAgPSBmYWxzZSwgLS0gSWYgdHJ1ZSBkaXNhYmxlcyB0aGUgcmFuZG9tIGh5cHJsYW5kIGxvZ28gLyBhbmltZSBnaXJsIGJhY2tncm91bmQuIDooCiAgICB9LAp9KQoKCi0tLS0tLS0tLS0tLS0tLS0KLS0tLSBMQVlFUlMgLS0tLQotLS0tLS0tLS0tLS0tLS0tCgpobC5jb25maWcoewogICAgbGF5ZXJzID0gewogICAgICAgIGFsbG93X25ld190b3BfbGF5ZXJzX292ZXJfZXhpc3RpbmdfZnVsbHNjcmVlbiA9IHRydWUsIC0tIFNldCB0byBmYWxzZSB0byBtYWtlIG5ld2x5IG1hcHBlZCB0b3AgbGF5ZXJzIHJlbmRlciBiZWxvdyBleGlzdGluZyBjb3ZlcmluZyBmdWxsc2NyZWVuIHdpbmRvdwogICAgfSwKfSkKCgotLS0tLS0tLS0tLS0tLS0KLS0tLSBJTlBVVCAtLS0tCi0tLS0tLS0tLS0tLS0tLQoKaGwuY29uZmlnKHsKICAgIGlucHV0ID0gewogICAgICAgIGtiX2xheW91dCAgICA9ICJ1cyIsCiAgICAgICAga2JfdmFyaWFudCAgID0gIiIsCiAgICAgICAga2JfbW9kZWwgICAgID0gIiIsCiAgICAgICAga2Jfb3B0aW9ucyAgID0gIiIsCiAgICAgICAga2JfcnVsZXMgICAgID0gIiIsCgogICAgICAgIGZvbGxvd19tb3VzZSA9IDEsCgogICAgICAgIHNlbnNpdGl2aXR5ICA9IDAsIC0tIC0xLjAgLSAxLjAsIDAgbWVhbnMgbm8gbW9kaWZpY2F0aW9uLgoKICAgICAgICB0b3VjaHBhZCAgICAgPSB7CiAgICAgICAgICAgIG5hdHVyYWxfc2Nyb2xsID0gZmFsc2UsCiAgICAgICAgfSwKICAgIH0sCn0pCgpobC5nZXN0dXJlKHsKICAgIGZpbmdlcnMgPSAzLAogICAgZGlyZWN0aW9uID0gImhvcml6b250YWwiLAogICAgYWN0aW9uID0gIndvcmtzcGFjZSIKfSkKCi0tIEV4YW1wbGUgcGVyLWRldmljZSBjb25maWcKLS0gU2VlIGh0dHBzOi8vd2lraS5oeXByLmxhbmQvY29uZmlndXJpbmcvY29yZS9kZXZpY2VzLyBmb3IgbW9yZQpobC5kZXZpY2UoewogICAgbmFtZSAgICAgICAgPSAiZXBpYy1tb3VzZS12MSIsCiAgICBzZW5zaXRpdml0eSA9IC0wLjUsCn0pCgoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tCi0tLS0gS0VZQklORElOR1MgLS0tLQotLS0tLS0tLS0tLS0tLS0tLS0tLS0KCmxvY2FsIG1haW5Nb2QgPSAiU1VQRVIiIC0tIFNldHMgIldpbmRvd3MiIGtleSBhcyBtYWluIG1vZGlmaWVyCgotLSBFeGFtcGxlIGJpbmRzLCBzZWUgaHR0cHM6Ly93aWtpLmh5cHIubGFuZC9jb25maWd1cmluZy9jb3JlL2JpbmRzLyBmb3IgbW9yZQpobC5iaW5kKG1haW5Nb2QgLi4gIiArIFEiLCBobC5kc3AuZXhlY19jbWQodGVybWluYWwpKQoKbG9jYWwgY2xvc2VXaW5kb3dCaW5kID0gaGwuYmluZChtYWluTW9kIC4uICIgKyBDIiwgaGwuZHNwLndpbmRvdy5jbG9zZSgpKQotLSBjbG9zZVdpbmRvd0JpbmQ6c2V0X2VuYWJsZWQoZmFsc2UpCgpobC5iaW5kKG1haW5Nb2QgLi4gIiArIE0iLAogICAgaGwuZHNwLmV4ZWNfY21kKCJjb21tYW5kIC12IGh5cHJzaHV0ZG93biA+L2Rldi9udWxsIDI+JjEgJiYgaHlwcnNodXRkb3duIHx8IGh5cHJjdGwgZGlzcGF0Y2ggJ2hsLmRzcC5leGl0KCknIikpCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgRSIsIGhsLmRzcC5leGVjX2NtZChmaWxlTWFuYWdlcikpCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgViIsIGhsLmRzcC53aW5kb3cuZmxvYXQoeyBhY3Rpb24gPSAidG9nZ2xlIiB9KSkKaGwuYmluZChtYWluTW9kIC4uICIgKyBSIiwgaGwuZHNwLmV4ZWNfY21kKG1lbnUpKQpobC5iaW5kKG1haW5Nb2QgLi4gIiArIEwiLCBobC5kc3AuZXhlY19jbWQoImxvZ2luY3RsIGxvY2stc2Vzc2lvbiIpKSAgICAgICAgICAgIC0tIGxvY2sgdmlhIGh5cHJsb2NrCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgWCIsIGhsLmRzcC5leGVjX2NtZCgiYmFzaCB+Ly5jb25maWcvcm9maS9wb3dlcm1lbnUuc2giKSkgLS0gcG93ZXIgbWVudSByb2ZpCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgUCIsIGhsLmRzcC53aW5kb3cucHNldWRvKCkpCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgSiIsIGhsLmRzcC5sYXlvdXQoInRvZ2dsZXNwbGl0IikpICAgICAgICAgICAgICAgICAgICAgICAgLS0gZHdpbmRsZSBvbmx5CgotLSBTY3JlZW5zaG90OiBQcmludCA9IHBpbGloIGFyZWEsIFNoaWZ0K1ByaW50ID0gbGF5YXIgcGVudWggKGdyaW0gKyBzbHVycCwKLS0gc2ltcGFuIGtlIH4vUGljdHVyZXMvU2NyZWVuc2hvdHMvICsgY2xpcGJvYXJkLCBub3RpZmlrYXNpIHZpYSBtYWtvKQpobC5iaW5kKCJQcmludCIsIGhsLmRzcC5leGVjX2NtZCgiYmFzaCB+Ly5jb25maWcvaHlwci9zY3JlZW5zaG90LnNoIGFyZWEiKSkKaGwuYmluZCgiU0hJRlQgKyBQcmludCIsIGhsLmRzcC5leGVjX2NtZCgiYmFzaCB+Ly5jb25maWcvaHlwci9zY3JlZW5zaG90LnNoIGZ1bGwiKSkKCi0tIE1vdmUgZm9jdXMgd2l0aCBtYWluTW9kICsgYXJyb3cga2V5cwpobC5iaW5kKG1haW5Nb2QgLi4gIiArIGxlZnQiLCBobC5kc3AuZm9jdXMoeyBkaXJlY3Rpb24gPSAibGVmdCIgfSkpCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgcmlnaHQiLCBobC5kc3AuZm9jdXMoeyBkaXJlY3Rpb24gPSAicmlnaHQiIH0pKQpobC5iaW5kKG1haW5Nb2QgLi4gIiArIHVwIiwgaGwuZHNwLmZvY3VzKHsgZGlyZWN0aW9uID0gInVwIiB9KSkKaGwuYmluZChtYWluTW9kIC4uICIgKyBkb3duIiwgaGwuZHNwLmZvY3VzKHsgZGlyZWN0aW9uID0gImRvd24iIH0pKQoKLS0gUGluZGFoIHdpbmRvdyAoYnVrYW4gY3VtYSBmb2t1cykgZGFsYW0gc2F0dSBsYXlvdXQvd29ya3NwYWNlCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgU0hJRlQgKyBsZWZ0IiwgaGwuZHNwLndpbmRvdy5tb3ZlKHsgZGlyZWN0aW9uID0gImxlZnQiIH0pKQpobC5iaW5kKG1haW5Nb2QgLi4gIiArIFNISUZUICsgcmlnaHQiLCBobC5kc3Aud2luZG93Lm1vdmUoeyBkaXJlY3Rpb24gPSAicmlnaHQiIH0pKQpobC5iaW5kKG1haW5Nb2QgLi4gIiArIFNISUZUICsgdXAiLCBobC5kc3Aud2luZG93Lm1vdmUoeyBkaXJlY3Rpb24gPSAidXAiIH0pKQpobC5iaW5kKG1haW5Nb2QgLi4gIiArIFNISUZUICsgZG93biIsIGhsLmRzcC53aW5kb3cubW92ZSh7IGRpcmVjdGlvbiA9ICJkb3duIiB9KSkKCi0tIFN3aXRjaCB3b3Jrc3BhY2VzIHdpdGggbWFpbk1vZCArIFswLTldCi0tIE1vdmUgYWN0aXZlIHdpbmRvdyB0byBhIHdvcmtzcGFjZSB3aXRoIG1haW5Nb2QgKyBTSElGVCArIFswLTldCmZvciBpID0gMSwgMTAgZG8KICAgIGxvY2FsIGtleSA9IGkgJSAxMCAtLSAxMCBtYXBzIHRvIGtleSAwCiAgICBobC5iaW5kKG1haW5Nb2QgLi4gIiArICIgLi4ga2V5LCBobC5kc3AuZm9jdXMoeyB3b3Jrc3BhY2UgPSBpIH0pKQogICAgaGwuYmluZChtYWluTW9kIC4uICIgKyBTSElGVCArICIgLi4ga2V5LCBobC5kc3Aud2luZG93Lm1vdmUoeyB3b3Jrc3BhY2UgPSBpIH0pKQplbmQKCi0tIEV4YW1wbGUgc3BlY2lhbCB3b3Jrc3BhY2UgKHNjcmF0Y2hwYWQpCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgUyIsIGhsLmRzcC53b3Jrc3BhY2UudG9nZ2xlX3NwZWNpYWwoIm1hZ2ljIikpCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgU0hJRlQgKyBTIiwgaGwuZHNwLndpbmRvdy5tb3ZlKHsgd29ya3NwYWNlID0gInNwZWNpYWw6bWFnaWMiIH0pKQoKLS0gU2Nyb2xsIHRocm91Z2ggZXhpc3Rpbmcgd29ya3NwYWNlcyB3aXRoIG1haW5Nb2QgKyBzY3JvbGwKaGwuYmluZChtYWluTW9kIC4uICIgKyBtb3VzZV9kb3duIiwgaGwuZHNwLmZvY3VzKHsgd29ya3NwYWNlID0gImUrMSIgfSkpCmhsLmJpbmQobWFpbk1vZCAuLiAiICsgbW91c2VfdXAiLCBobC5kc3AuZm9jdXMoeyB3b3Jrc3BhY2UgPSAiZS0xIiB9KSkKCi0tIE1vdmUvcmVzaXplIHdpbmRvd3Mgd2l0aCBtYWluTW9kICsgTE1CL1JNQiBhbmQgZHJhZ2dpbmcKaGwuYmluZChtYWluTW9kIC4uICIgKyBtb3VzZToyNzIiLCBobC5kc3Aud2luZG93LmRyYWcoKSwgeyBtb3VzZSA9IHRydWUgfSkKaGwuYmluZChtYWluTW9kIC4uICIgKyBtb3VzZToyNzMiLCBobC5kc3Aud2luZG93LnJlc2l6ZSgpLCB7IG1vdXNlID0gdHJ1ZSB9KQoKLS0gTGFwdG9wIG11bHRpbWVkaWEga2V5cyBmb3Igdm9sdW1lIGFuZCBMQ0QgYnJpZ2h0bmVzcwpobC5iaW5kKCJYRjg2QXVkaW9SYWlzZVZvbHVtZSIsIGhsLmRzcC5leGVjX2NtZCgid3BjdGwgc2V0LXZvbHVtZSAtbCAxIEBERUZBVUxUX0FVRElPX1NJTktAIDUlKyIpLAogICAgeyBsb2NrZWQgPSB0cnVlLCByZXBlYXRpbmcgPSB0cnVlIH0pCmhsLmJpbmQoIlhGODZBdWRpb0xvd2VyVm9sdW1lIiwgaGwuZHNwLmV4ZWNfY21kKCJ3cGN0bCBzZXQtdm9sdW1lIEBERUZBVUxUX0FVRElPX1NJTktAIDUlLSIpLAogICAgeyBsb2NrZWQgPSB0cnVlLCByZXBlYXRpbmcgPSB0cnVlIH0pCmhsLmJpbmQoIlhGODZBdWRpb011dGUiLCBobC5kc3AuZXhlY19jbWQoIndwY3RsIHNldC1tdXRlIEBERUZBVUxUX0FVRElPX1NJTktAIHRvZ2dsZSIpLAogICAgeyBsb2NrZWQgPSB0cnVlLCByZXBlYXRpbmcgPSB0cnVlIH0pCmhsLmJpbmQoIlhGODZBdWRpb01pY011dGUiLCBobC5kc3AuZXhlY19jbWQoIndwY3RsIHNldC1tdXRlIEBERUZBVUxUX0FVRElPX1NPVVJDRUAgdG9nZ2xlIiksCiAgICB7IGxvY2tlZCA9IHRydWUsIHJlcGVhdGluZyA9IHRydWUgfSkKaGwuYmluZCgiWEY4Nk1vbkJyaWdodG5lc3NVcCIsIGhsLmRzcC5leGVjX2NtZCgiYmFzaCAtYyAnYnJpZ2h0bmVzc2N0bCAtZTQgLW4yIHNldCA1JSs7IHF1aWNrc2hlbGwgaXBjIGNhbGwgYnJpZ2h0bmVzcyByZWZyZXNoJyIpLCB7IGxvY2tlZCA9IHRydWUsIHJlcGVhdGluZyA9IHRydWUgfSkKaGwuYmluZCgiWEY4Nk1vbkJyaWdodG5lc3NEb3duIiwgaGwuZHNwLmV4ZWNfY21kKCJiYXNoIC1jICdicmlnaHRuZXNzY3RsIC1lNCAtbjIgc2V0IDUlLTsgcXVpY2tzaGVsbCBpcGMgY2FsbCBicmlnaHRuZXNzIHJlZnJlc2gnIiksIHsgbG9ja2VkID0gdHJ1ZSwgcmVwZWF0aW5nID0gdHJ1ZSB9KQoKLS0gUmVxdWlyZXMgcGxheWVyY3RsCmhsLmJpbmQoIlhGODZBdWRpb05leHQiLCBobC5kc3AuZXhlY19jbWQoInBsYXllcmN0bCBuZXh0IiksIHsgbG9ja2VkID0gdHJ1ZSB9KQpobC5iaW5kKCJYRjg2QXVkaW9QYXVzZSIsIGhsLmRzcC5leGVjX2NtZCgicGxheWVyY3RsIHBsYXktcGF1c2UiKSwgeyBsb2NrZWQgPSB0cnVlIH0pCmhsLmJpbmQoIlhGODZBdWRpb1BsYXkiLCBobC5kc3AuZXhlY19jbWQoInBsYXllcmN0bCBwbGF5LXBhdXNlIiksIHsgbG9ja2VkID0gdHJ1ZSB9KQpobC5iaW5kKCJYRjg2QXVkaW9QcmV2IiwgaGwuZHNwLmV4ZWNfY21kKCJwbGF5ZXJjdGwgcHJldmlvdXMiKSwgeyBsb2NrZWQgPSB0cnVlIH0pCgoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KLS0tLSBXSU5ET1dTIEFORCBXT1JLU1BBQ0VTIC0tLS0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCi0tIFNlZSBodHRwczovL3dpa2kuaHlwci5sYW5kL2NvbmZpZ3VyaW5nL2NvcmUvcnVsZXMvCgotLSBFeGFtcGxlIHdpbmRvdyBydWxlcyB0aGF0IGFyZSB1c2VmdWwKCmxvY2FsIHN1cHByZXNzTWF4aW1pemVSdWxlID0gaGwud2luZG93X3J1bGUoewogICAgLS0gSWdub3JlIG1heGltaXplIHJlcXVlc3RzIGZyb20gYWxsIGFwcHMuIFlvdSdsbCBwcm9iYWJseSBsaWtlIHRoaXMuCiAgICBuYW1lICAgICAgICAgICA9ICJzdXBwcmVzcy1tYXhpbWl6ZS1ldmVudHMiLAogICAgbWF0Y2ggICAgICAgICAgPSB7IGNsYXNzID0gIi4qIiB9LAoKICAgIHN1cHByZXNzX2V2ZW50ID0gIm1heGltaXplIiwKfSkKLS0gc3VwcHJlc3NNYXhpbWl6ZVJ1bGU6c2V0X2VuYWJsZWQoZmFsc2UpCgpobC53aW5kb3dfcnVsZSh7CiAgICAtLSBGaXggc29tZSBkcmFnZ2luZyBpc3N1ZXMgd2l0aCBYV2F5bGFuZAogICAgbmFtZSAgICAgPSAiZml4LXh3YXlsYW5kLWRyYWdzIiwKICAgIG1hdGNoICAgID0gewogICAgICAgIGNsYXNzICAgICAgPSAiXiQiLAogICAgICAgIHRpdGxlICAgICAgPSAiXiQiLAogICAgICAgIHh3YXlsYW5kICAgPSB0cnVlLAogICAgICAgIGZsb2F0ICAgICAgPSB0cnVlLAogICAgICAgIGZ1bGxzY3JlZW4gPSBmYWxzZSwKICAgICAgICBwaW4gICAgICAgID0gZmFsc2UsCiAgICB9LAoKICAgIG5vX2ZvY3VzID0gdHJ1ZSwKfSkKCi0tIExheWVyIHJ1bGVzIGFsc28gcmV0dXJuIGEgaGFuZGxlLgotLSBsb2NhbCBvdmVybGF5TGF5ZXJSdWxlID0gaGwubGF5ZXJfcnVsZSh7Ci0tICAgICBuYW1lICA9ICJuby1hbmltLW92ZXJsYXkiLAotLSAgICAgbWF0Y2ggPSB7IG5hbWVzcGFjZSA9ICJebXktb3ZlcmxheSQiIH0sCi0tICAgICBub19hbmltID0gdHJ1ZSwKLS0gfSkKLS0gb3ZlcmxheUxheWVyUnVsZTpzZXRfZW5hYmxlZChmYWxzZSkKCi0tIEh5cHJsYW5kLXJ1biB3aW5kb3dydWxlCmhsLndpbmRvd19ydWxlKHsKICAgIG5hbWUgID0gIm1vdmUtaHlwcmxhbmQtcnVuIiwKICAgIG1hdGNoID0geyBjbGFzcyA9ICJoeXBybGFuZC1ydW4iIH0sCgogICAgbW92ZSAgPSAiMjAgbW9uaXRvcl9oLTEyMCIsCiAgICBmbG9hdCA9IHRydWUsCn0pCg==
+------------------
+---- MONITORS ----
+------------------
+
+-- See https://wiki.hypr.land/configuring/core/monitors/
+hl.monitor({
+    output   = "",
+    mode     = "preferred",
+    position = "auto",
+    scale    = "1",
+})
+
+
+---------------------
+---- MY PROGRAMS ----
+---------------------
+
+-- Set programs that you use
+local terminal    = "kitty"
+local fileManager = "thunar"
+local menu        = "rofi -show drun"
+
+
+-------------------
+---- AUTOSTART ----
+-------------------
+
+-- See https://wiki.hypr.land/configuring/core/autostart/
+
+-- Autostart necessary processes (like notifications daemons, status bars, etc.)
+-- Or execute your favorite apps at launch like this:
+--
+hl.on("hyprland.start", function()
+    -- Quickshell tidak lagi di autostart di sini; dijalankan via systemd user service
+    -- (packages/quickshell/.config/systemd/user/quickshell.service).
+    hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
+    hl.exec_cmd("hypridle") -- idle: lock 5 mnt, DPMS off, suspend 30 mnt (hypridle.conf)
+    hl.exec_cmd("mako") -- notifikasi (mako/config)
+end)
+
+
+-------------------------------
+---- ENVIRONMENT VARIABLES ----
+-------------------------------
+
+-- See https://wiki.hypr.land/configuring/core/environment-variables/
+
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "24")
+
+
+-----------------------
+----- PERMISSIONS -----
+-----------------------
+
+-- See https://wiki.hypr.land/configuring/core/advanced-configuration/permissions/
+-- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
+-- for security reasons
+
+-- hl.config({
+--   ecosystem = {
+--     enforce_permissions = true,
+--   },
+-- })
+
+-- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
+-- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
+-- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+
+
+-----------------------
+---- LOOK AND FEEL ----
+-----------------------
+
+-- Refer to https://wiki.hypr.land/configuring/core/config-options/
+hl.config({
+    general = {
+        gaps_in          = 5,
+        gaps_out         = 10,
+
+        border_size      = 2,
+
+        col              = {
+            active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+            inactive_border = "rgba(595959aa)",
+        },
+
+        -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
+        resize_on_border = false,
+
+        -- Please see https://wiki.hypr.land/configuring/extra/tearing/ before you turn this on
+        allow_tearing    = false,
+
+        layout           = "dwindle",
+    },
+
+    decoration = {
+        rounding         = 10,
+        rounding_power   = 2,
+
+        -- Change transparency of focused and unfocused windows
+        active_opacity   = 1.0,
+        inactive_opacity = 1.0,
+
+        shadow           = {
+            enabled      = true,
+            range        = 4,
+            render_power = 3,
+            color        = 0xee1a1a1a,
+        },
+
+        blur             = {
+            enabled  = true,
+            size     = 3,
+            passes   = 1,
+            vibrancy = 0.1696,
+        },
+    },
+
+    animations = {
+        enabled = true,
+    },
+})
+
+-- Default curves and animations, see https://wiki.hypr.land/configuring/core/animations/
+hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
+hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
+hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
+hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
+hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
+
+-- Default springs
+hl.curve("easy", { type = "spring", mass = 1, stiffness = 238.1191, damping = 24.21279333 })
+
+hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" })
+hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windows", enabled = true, speed = 4.79, spring = "easy" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.1, spring = "easy", style = "popin 87%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.49, bezier = "linear", style = "popin 87%" })
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.73, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.46, bezier = "almostLinear" })
+hl.animation({ leaf = "fade", enabled = true, speed = 3.03, bezier = "quick" })
+hl.animation({ leaf = "layers", enabled = true, speed = 3.81, bezier = "easeOutQuint" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "easeOutQuint", style = "fade" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "linear", style = "fade" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.79, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
+
+-- Ref https://wiki.hypr.land/configuring/core/rules/workspace-rules/
+-- "Smart gaps" / "No gaps when only"
+-- uncomment all if you wish to use that.
+-- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+-- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
+
+-- Workspace 1 pakai layout scrolling, workspace lain tetap dwindle (default)
+hl.workspace_rule({ workspace = "1", layout = "scrolling" })
+-- hl.window_rule({
+--     name  = "no-gaps-wtv1",
+--     match = { float = false, workspace = "w[tv1]" },
+--     border_size = 0,
+--     rounding    = 0,
+-- })
+-- hl.window_rule({
+--     name  = "no-gaps-f1",
+--     match = { float = false, workspace = "f[1]" },
+--     border_size = 0,
+--     rounding    = 0,
+-- })
+
+-- See https://wiki.hypr.land/configuring/layouts/dwindle-layout/ for more
+hl.config({
+    dwindle = {
+        preserve_split = true, -- You probably want this
+    },
+})
+
+-- See https://wiki.hypr.land/configuring/layouts/master-layout/ for more
+hl.config({
+    master = {
+        new_status = "master",
+    },
+})
+
+-- See https://wiki.hypr.land/configuring/layouts/scrolling-layout/ for more
+hl.config({
+    scrolling = {
+        fullscreen_on_one_column = true,
+    },
+})
+
+----------------
+----  MISC  ----
+----------------
+
+hl.config({
+    misc = {
+        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+    },
+})
+
+
+----------------
+---- LAYERS ----
+----------------
+
+hl.config({
+    layers = {
+        allow_new_top_layers_over_existing_fullscreen = true, -- Set to false to make newly mapped top layers render below existing covering fullscreen window
+    },
+})
+
+
+---------------
+---- INPUT ----
+---------------
+
+hl.config({
+    input = {
+        kb_layout    = "us",
+        kb_variant   = "",
+        kb_model     = "",
+        kb_options   = "",
+        kb_rules     = "",
+
+        follow_mouse = 1,
+
+        sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+
+        touchpad     = {
+            natural_scroll = false,
+        },
+    },
+})
+
+hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    action = "workspace"
+})
+
+-- Example per-device config
+-- See https://wiki.hypr.land/configuring/core/devices/ for more
+hl.device({
+    name        = "epic-mouse-v1",
+    sensitivity = -0.5,
+})
+
+
+---------------------
+---- KEYBINDINGS ----
+---------------------
+
+local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+
+-- Example binds, see https://wiki.hypr.land/configuring/core/binds/ for more
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
+
+local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
+-- closeWindowBind:set_enabled(false)
+
+hl.bind(mainMod .. " + M",
+    hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))            -- lock via hyprlock
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("bash ~/.config/rofi/powermenu.sh")) -- power menu rofi
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))                        -- dwindle only
+
+-- Screenshot: Print = pilih area, Shift+Print = layar penuh (grim + slurp,
+-- simpan ke ~/Pictures/Screenshots/ + clipboard, notifikasi via mako)
+hl.bind("Print", hl.dsp.exec_cmd("bash ~/.config/hypr/screenshot.sh area"))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("bash ~/.config/hypr/screenshot.sh full"))
+
+-- Move focus with mainMod + arrow keys
+hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+
+-- Pindah window (bukan cuma fokus) dalam satu layout/workspace
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
+
+-- Switch workspaces with mainMod + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
+for i = 1, 10 do
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+end
+
+-- Example special workspace (scratchpad)
+hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+
+-- Scroll through existing workspaces with mainMod + scroll
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+
+-- Move/resize windows with mainMod + LMB/RMB and dragging
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- Laptop multimedia keys for volume and LCD brightness
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+    { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+    { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+    { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+    { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("bash -c 'brightnessctl -e4 -n2 set 5%+; quickshell ipc call brightness refresh'"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("bash -c 'brightnessctl -e4 -n2 set 5%-; quickshell ipc call brightness refresh'"), { locked = true, repeating = true })
+
+-- Requires playerctl
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+
+--------------------------------
+---- WINDOWS AND WORKSPACES ----
+--------------------------------
+
+-- See https://wiki.hypr.land/configuring/core/rules/
+
+-- Example window rules that are useful
+
+local suppressMaximizeRule = hl.window_rule({
+    -- Ignore maximize requests from all apps. You'll probably like this.
+    name           = "suppress-maximize-events",
+    match          = { class = ".*" },
+
+    suppress_event = "maximize",
+})
+-- suppressMaximizeRule:set_enabled(false)
+
+hl.window_rule({
+    -- Fix some dragging issues with XWayland
+    name     = "fix-xwayland-drags",
+    match    = {
+        class      = "^$",
+        title      = "^$",
+        xwayland   = true,
+        float      = true,
+        fullscreen = false,
+        pin        = false,
+    },
+
+    no_focus = true,
+})
+
+-- Layer rules also return a handle.
+-- local overlayLayerRule = hl.layer_rule({
+--     name  = "no-anim-overlay",
+--     match = { namespace = "^my-overlay$" },
+--     no_anim = true,
+-- })
+-- overlayLayerRule:set_enabled(false)
+
+-- Hyprland-run windowrule
+hl.window_rule({
+    name  = "move-hyprland-run",
+    match = { class = "hyprland-run" },
+
+    move  = "20 monitor_h-120",
+    float = true,
+})
