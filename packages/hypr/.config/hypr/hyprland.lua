@@ -34,6 +34,7 @@ hl.on("hyprland.start", function()
     -- Quickshell tidak lagi di autostart di sini; dijalankan via systemd user service
     -- (packages/quickshell/.config/systemd/user/quickshell.service).
     hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("bash ~/.config/hypr/wallpaper-rotate.sh") -- wallpaper baru dari Unsplash tiap start
     hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
     hl.exec_cmd("hypridle") -- idle: lock 5 mnt, DPMS off, suspend 30 mnt (hypridle.conf)
     hl.exec_cmd("mako") -- notifikasi (mako/config)
