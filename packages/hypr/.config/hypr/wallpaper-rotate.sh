@@ -52,5 +52,7 @@ mv "$TMP" "$OUT"
 printf '%s\nTema: %s\n' "$PHOTOGRAPHER" "$QUERY" > "$INFO"
 
 # Terapkan ke hyprpaper yang sedang jalan; fallback: restart hyprpaper.
-hyprctl hyprpaper reload ",$OUT" || { pkill hyprpaper; nohup hyprpaper >/dev/null 2>&1 & disown; }
+# preload + wallpaper (monitor kosong = semua monitor) — lebih kompatibel
+# daripada reload di berbagai versi hyprpaper.
+hyprctl hyprpaper preload "$OUT" && hyprctl hyprpaper wallpaper ",$OUT" || { pkill hyprpaper; nohup hyprpaper >/dev/null 2>&1 & disown; }
 echo "Wallpaper baru: $PHOTOGRAPHER"
