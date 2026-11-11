@@ -45,6 +45,17 @@ Dash-prefixed arguments are passed to stow; write options that take a value as `
 System files in `etc/sysctl.d` are copied (not linked) with `scripts/install-sysctl.sh`; run `sudo sysctl --system` or reboot to apply them.
 
 ### Wallpaper
-Wallpaper diambil dari Unsplash lewat script `wallpaper-rotate.sh` (`packages/hypr/.config/hypr/wallpaper-rotate.sh`) yang jalan tiap Hyprland start, jadi tiap sesi wallpaper-nya baru. Script ini butuh `UNSPLASH_ACCESS_KEY` di `~/.config/hypr/wallpaper.env` (file lokal, jangan di-commit; kunci dibuat di https://unsplash.com/developers). Kalau mau ganti wallpaper di tengah sesi, jalankan manual: `bash ~/.config/hypr/wallpaper-rotate.sh`.
+Wallpaper diambil dari Unsplash lewat script `wallpaper-rotate.sh` (`packages/hypr/.config/hypr/wallpaper-rotate.sh`) yang jalan tiap Hyprland start, jadi tiap sesi wallpaper-nya baru.
+
+Siapkan kunci Unsplash sekali saja:
+1. Buat aplikasi di https://unsplash.com/developers dan salin "Access Key"-nya.
+2. Salin contoh konfigurasinya dan isi kuncinya:
+   ```sh
+   cp ~/.config/hypr/wallpaper.env.example ~/.config/hypr/wallpaper.env
+   # lalu isi UNSPLASH_ACCESS_KEY di wallpaper.env
+   ```
+   File `wallpaper.env` (yang asli, berisi kunci) jangan di-commit — sudah ada di `.gitignore`. Yang di-commit hanya `wallpaper.env.example` (template tanpa kunci).
+
+Kalau mau ganti wallpaper di tengah sesi, jalankan manual: `bash ~/.config/hypr/wallpaper-rotate.sh`.
 
 Contoh wallpaper (Mount Fuji, Unsplash): ![Mount Fuji at night](https://images.unsplash.com/photo-1509023464722-18d996393ca8?fm=jpg&q=85&w=1920&auto=format&fit=crop)
