@@ -160,6 +160,17 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 
 -- Workspace 1 pakai layout scrolling, workspace lain tetap dwindle (default)
 hl.workspace_rule({ workspace = "1", layout = "scrolling" })
+
+-- Workspace 2-10 (dwindle) duduk 5px lebih ke kiri dari workspace 1.
+-- Diukur 13 Nov 2026 via `hyprctl activewindow`: WS1 at x=17, WS2 at
+-- x=12 (Y sama, 44). Selisih 5 = gaps_in: layout scrolling menambahkan
+-- gaps_in di ujung tape, dwindle tidak. Samakan dengan workspace 1 dan
+-- ujung bar (15): gaps_out kiri-kanan 15, atas-bawah tetap 10 supaya
+-- posisi Y tidak berubah. css_gaps di Lua bisa berupa tabel
+-- { top, left, right, bottom }.
+for i = 2, 10 do
+    hl.workspace_rule({ workspace = tostring(i), gaps_out = { top = 10, right = 15, bottom = 10, left = 15 } })
+end
 -- hl.window_rule({
 --     name  = "no-gaps-wtv1",
 --     match = { float = false, workspace = "w[tv1]" },
