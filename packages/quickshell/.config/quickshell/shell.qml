@@ -1,5 +1,5 @@
 // shell.qml — DRAF indikator CPU lingkaran ala end_4, untuk bar Quickshell papa
-// Basis: draf shell.qml yang sudah jalan di laptop papa (workspace 1-9 + jam +
+// Basis: draf shell.qml yang sudah jalan di laptop papa (workspace 1-10 + jam +
 // baterai UPower, PanelWindow color: "transparent").
 // Ikon tengah: "memory" dari Material Symbols Rounded
 // (paket Arch resmi ttf-material-symbols-variable, terpasang 2 Nov 2026).
@@ -202,7 +202,7 @@ Scope {
                 color: "#bf1e1e2e"
             }
 
-            // Kiri: workspace 1-9. Klik = pindah workspace via dispatcher Hyprland.
+            // Kiri: workspace 1-10. Klik = pindah workspace via dispatcher Hyprland.
             // Rounding pill aktif selaras dengan sudut bar: latar bar radius 12;
             // pill inset 2px dari latar (kiri & atas sama) sehingga
             // radius pill = 12 - 2 = 10, konsentris dengan sudut bar.
@@ -215,7 +215,7 @@ Scope {
                 spacing: 4
 
                 Repeater {
-                    model: 9
+                    model: 10
 
                     Rectangle {
                         required property int index
