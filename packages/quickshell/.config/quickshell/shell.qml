@@ -187,20 +187,27 @@ Scope {
             implicitHeight: 32
 
             // Latar ala Waybar papa: rgba(30, 30, 46, 0.75), sudut membulat.
+            // Ujung kiri-kanan bar sejajar dengan border window: margin
+            // kiri-kanan 10 = gaps_out Hyprland (10), atas-bawah tetap 3.
             Rectangle {
                 anchors.fill: parent
-                anchors.margins: 3
+                anchors.topMargin: 3
+                anchors.bottomMargin: 3
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
                 radius: 12
                 color: "#bf1e1e2e"
             }
 
             // Kiri: workspace 1-9. Klik = pindah workspace via dispatcher Hyprland.
-            // Rounding pill aktif selaras dengan sudut bar: latar bar radius 12
-            // dengan margin 3; pill inset 2px dari latar (kiri & atas sama) sehingga
+            // Rounding pill aktif selaras dengan sudut bar: latar bar radius 12;
+            // pill inset 2px dari latar (kiri & atas sama) sehingga
             // radius pill = 12 - 2 = 10, konsentris dengan sudut bar.
+            // Row kiri digeser ke 12 (10 margin bar + 2 inset) supaya pill
+            // tetap 2px dari ujung latar bar.
             Row {
                 anchors.left: parent.left
-                anchors.leftMargin: 5
+                anchors.leftMargin: 12
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: 4
 
@@ -241,9 +248,11 @@ Scope {
 
             // Kanan: lingkaran CPU + persen, lingkaran RAM + persen,
             // brightness + persen, volume + persen, lalu indikator baterai.
+            // Row kanan digeser ke 19 (10 margin bar + 9 inset lama)
+            // supaya jarak konten dari ujung latar bar tetap sama.
             Row {
                 anchors.right: parent.right
-                anchors.rightMargin: 12
+                anchors.rightMargin: 19
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: 6
 
