@@ -202,6 +202,11 @@ hl.config({
 hl.config({
     scrolling = {
         fullscreen_on_one_column = true,
+        -- Lebar kolom 1.0 = satu kolom selebar layar penuh, jadi di
+        -- workspace 1 (scrolling) yang tampil maksimal 1 kolom/window
+        -- dalam satu waktu; kolom lain ada di tape sebelah kanan/kiri
+        -- (default 0.5 menampilkan 2 kolom berdampingan).
+        column_width = 1.0,
     },
 })
 
